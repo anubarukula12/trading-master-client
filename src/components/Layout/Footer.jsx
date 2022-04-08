@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Navbar, NavbarBrand, Container } from "react-bootstrap";
-
-class Footer extends Component {
-  render() {
+ const Footer =()=>{
     return (
       <div className="fixed-bottom">
         <Container>
@@ -13,5 +11,5 @@ class Footer extends Component {
       </div>
     );
   }
-}
+
 export default Footer;
