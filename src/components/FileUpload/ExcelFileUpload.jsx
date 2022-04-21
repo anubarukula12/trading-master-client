@@ -20,17 +20,30 @@ const ExcelFileUpload = () => {
 })
   }
   const renderFile = () => {
-    data= window.excelrowvalues
-    console.log(JSON.stringify());
-    
-
+   const data= window.excelrowvalues
+  
+    const excelvalues=Object.values(data)
+    // console.log("the headers is",headervalues)
+    // //const header=headervalues.split(',');
+    // console.log("header is",Object.keys(data).length)
+  //    for(let i=1;i<Object.keys(data).length;i++){
+  //      let obj={};
+         
+  //   for(let j = 0; j<headervalues.length; j++) {
+  //      headervalues[j] = headervalues[j].split(",");
+  //      obj[headervalues[j]]=currentline[j]
+  //   }
+  //   result.push(obj)
+  // }
+  //  const datavalues=JSON.stringify(result)
+    console.log("the result value is",excelvalues)
   axios
        .post("http://localhost:5000/display",{
-       country_id:"anu",
-       name:"radha",
-       code:"",
-       status:"Active"
-      })
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        },excelvalues
+       })
  
        .then(res => {
            console.log("the res data in then method",res.data)
