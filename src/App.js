@@ -5,11 +5,15 @@ import Footer from "./components/Layout/Footer";
 import ContentLayout from "./components/Layout/ContentLayout";
 import Routes from "./Utils/routes/Routes";
 import "./Utils/css/styles.css"
+import UserNavbarLayout from "./components/UserPage/UserNavbarLayout";
+import UserContentLayout from "./components/UserPage/UserContentLayout";
 function App() {
   return (
     <div className="App">
-      <NavbarLayout/>
-      <ContentLayout />
+      {/* <NavbarLayout/>
+      <ContentLayout /> */}
+      <UserNavbarLayout/>
+      <UserContentLayout/>
       <Routes />
       <Footer />
     </div>

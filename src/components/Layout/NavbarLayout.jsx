@@ -23,15 +23,6 @@ const NavbarLayout = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">AboutUs</Nav.Link>
-            <NavDropdown title="Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Stock List</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Portfolio List
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Portfolio Performance
-              </NavDropdown.Item>
-            </NavDropdown>
           </Nav>
           <Nav>
             <LinkContainer to="/signin">

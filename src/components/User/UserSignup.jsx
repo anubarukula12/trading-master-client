@@ -12,40 +12,33 @@ const UserSignup = () => {
     reset,
     trigger,
   } = useForm();
-  // const [data, setData] = useState({
-  //   name: "",
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  //   confirmpassword: "",
-  // });
- 
-  const [message, setMessage] = useState("")
-  // const onChangeHandler = (e) => {
-  //   alert("hai");
-  //   setData({ ...data, [e.target.name]: [e.target.value] })
-  // };
+  const [successmessage, setSuccessMessage] = useState("")
+  const [errormessage, setErrorMessage] = useState("")
   const onSubmit = (data) => {
+    console.log(data);
     reset();
     axios
       .post("http://localhost:5000/users/register", data)
+
       .then(res => {
-        console.log(res.json());
+          setSuccessMessage(res.data)
+       
       })
       .catch((error) => {
-        setMessage(error.message);
+        if(error.response){
+          setErrorMessage(error.response.data);
+        }
+        // setErrorMessage(error.response.data);
       });
   };
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   reset();
-  // };
   return (
     <Container>
       <Row>
         <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
-            {message && <div>{message}</div>}
+          <h3>Create your account</h3>
+            {successmessage && <h2 className="text-success">{successmessage}</h2>}
+            {errormessage && <h2 className="text-danger">{errormessage}</h2>}
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -62,7 +55,8 @@ const UserSignup = () => {
                   },
                 })}
                 onKeyUp={() => {
-                  setMessage("");
+                  setSuccessMessage("");
+                  setErrorMessage("");
                   trigger("name");
                 }}
               />
@@ -163,13 +157,13 @@ const UserSignup = () => {
                 </small>
               )}
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="primary" type="submit" className="form-control">
+              SignUp
             </Button>
             <p>
               Already registered?
               <span className="line">
-                <a href="/signin">Sign In</a>
+                <a href="/signin"  className="text-decoration-none">Sign In</a>
               </span>
             </p>
           </Form>
