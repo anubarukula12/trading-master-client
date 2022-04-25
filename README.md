@@ -8,9 +8,9 @@
 
 # <span style="color:grey">_Description_
 
-In TradingMaster the user registers and logins to see his stocks,portfolio,portfolioperfrmonance and EOD stock data.
-
-- The admin has access to create stocks if does't exists,create record,upload the EOD stocks excel file to teh database.Admin has access to update the stocks to the database.
+In TradingMaster the user registers and logins to see his stocks,portfolio,portfolioperfrmonance and EOD stock data.The user can chnage his password in his profile link.
+The admin has access to create stocks if does't exists,create record,upload the EOD stocks excel file to the database everyday.Admin has access to update the stocks to the database.
+-
 - User Authentication-JWT
   -
   ***
