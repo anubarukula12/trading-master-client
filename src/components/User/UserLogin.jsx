@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {useState,useContext, useEffect } from "react";
 import axios from "axios";
+import { FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { FacebookLoginButton } from "react-social-login-buttons";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "../../Utils/css/styles.css";
 const UserLogin = () => {
-  let navigate=useNavigate();
+   const navigate = useNavigate();
+ const [auth,setAuth]=useState(false)
   const {
     register,
     handleSubmit,
@@ -14,47 +17,52 @@ const UserLogin = () => {
     reset,
     trigger,
   } = useForm();
-  useEffect(()=>{
-    const token=localStorage.getItem('token');
-    axios.post("http://localhost:5000/protected",{
-        headers:{
-            Authorization:token,
-        }
-    }).then(res=>{
-        console.log(res)
-        navigate('/protected')
-    }).catch(err =>{
-console.log(err);
-navigate('/signin')
-    })
-},[])
+  const [successmessage, setSuccessMessage] = useState("");
+  const [errormessage, setErrorMessage] = useState("");
+
   const onSubmit = (data) => {
     reset();
     console.log(data);
-     axios
-   .post("http://localhost:5000/users/login", data).then(user=>{
-console.log(user);
-localStorage.setItem('token',user.data.token)
-navigate('/protected')
-   }).catch(err=>{
-     console.log(err);
-   })
-  
+    axios
+      .post("http://localhost:5000/users/login", data)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);setAuth(true)
+      })
+      .catch((error) => {
+        if (error.response) {
+          setErrorMessage(error.response.data);
+        }
+      });
   };
+  useEffect(()=>{
+  if(auth){
+    navigate('/dashboard')
+  }
+  });
   return (
-    <Container>
+    <Container id="container">
       <Row>
-        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+        <Col
+          lg={5}
+          md={6}
+          sm={12}
+          className="p-5 m-auto shadow-sm rounded-lg .ml-3"
+        >
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <h3>Login in to your account</h3>
-            <FacebookLoginButton onClick={() => alert("Hello")} />
-            <GoogleLoginButton onClick={() => alert("Hello")} />
-            <div className="mb-4">
-              <hr data-content="AND" className="hr-text,solid" />
-            </div>
             <Form.Group className="mb-3" controlId="formBasicEmail">
+              {errormessage && <h2 className="text-danger">{errormessage}</h2>}
+              <p style={{ fontSize: "20px" }}>
+                <FaUser />
+                Login in to your account
+              </p>
+              <FacebookLoginButton onClick={() => alert("Hello")} />
+              <GoogleLoginButton onClick={() => alert("Hello")} />
+              <div className="mb-4">
+                <hr data-content="AND" className="hr-text,solid" />
+              </div>
               <Form.Label>Username</Form.Label>
               <Form.Control
+                className={`${errors.username && "invalid"}`}
                 type="text"
                 name="username"
                 autoComplete="off"
@@ -62,6 +70,10 @@ navigate('/protected')
                 {...register("username", {
                   required: "Username is Required!",
                 })}
+                onKeyUp={() => {
+                  setSuccessMessage("");
+                  setErrorMessage("");
+                }}
               />
               {errors.username && (
                 <small className="text-danger">{errors.username.message}</small>
@@ -70,6 +82,7 @@ navigate('/protected')
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
+                className={`${errors.password && "invalid"}`}
                 type="password"
                 name="password"
                 placeholder="Password"

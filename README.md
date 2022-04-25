@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# **TradingMaster** Anuradha Barukula
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# _Technologies Used_
 
-In the project directory, you can run:
+## TradingMaster is a full-stack MERN application.The MERN stack is a webdevelopment framework made up of the stack of MongoDB, Express.js, React.js, and Nodejs.
 
-### `npm start`
+# _Description_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In TradingMaster the user registers and logins to see his stocks,portfolio,portfolioperfrmonance and EOD stock data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- The admin has access to create stocks if does't exists,create record,upload the EOD stocks excel file to teh database.Admin has access to update the stocks to the database.
+- User Authentication-JWT
+  -
+  ***
 
-### `npm test`
+# _Project structure_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## trading-master-client- **Holds the client application**
 
-### `npm run build`
+- public-This holds all our static files
+  -
+- src
+  -
+  * **assests**-This folder holds images and css files
+    -
+  * **components**-This folder holds all of the components that will make up our views
+    -
+  * **routes**-This folder holds all of our HTTP to URL path associations for each unique url
+    -
+  * **App.js**-This is what renders all of our browser routes and renders views
+    -
+  * **index.js**-This is what renders the react app by rendering App.js,should not change 
+    -
+    **package.json**-Defines npm behaviors and packages for the client
+    -
+   ***
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## trading-master-server-**Holds the server application**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **config**-Defines npm behaviors and packages for the client
+  -
+- **controllers** - These hold all of the callback functions that each route will call
+  -
+- ## **models** - This holds all of our data models
+- ## **routes** - This holds all of our HTTP to URL path associations for each unique url
+- **server.js** - Defines npm behaviors and packages for the client -
+  **package.json** - Defines npm behaviors and the scripts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* ---
 
-### `npm run eject`
+# _Run the Application_
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Client-side usage(PORT: 3000)**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  -
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  * **$cd trading-master-client** (go to the client folder)
+  * **$npm i** (npm install packages)
+  * **$npm start**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ***
 
-## Learn More
+- **Server-side usage(PORT: 5000)**
+  -
+  * **$cd trading-master-server** (go to the client folder)
+  * **$npm i** (npm install packages)
+  * **$npm run serve**
+  ***
+# _Dependencies_
+  | Client-side                       | Server-side             |
+  | :-------------------------------- | :---------------------- |
+  | axios : "^0.26.1"                 | bcrypt                  |
+  | react : "^18.00"                  | cors : "^2.8.5"         |
+  | react-dom : "^1.1.0"              | dotenv : "^16.0.0"      |
+  | react-excel-renderer:"1.1.0"      | express : "^4.17.3"     |
+  | recat-hook-form:"^7.29.0"         | jsonwebtoken : "^8.5.1" |
+  | react-icons:"^4.3.1"              | mongoose : "^6.2.10"    |
+  | react-bootstrap:"^0.26.1"         | nodemon : "^2.0.15"     |
+  | react-router-dom:"^6.2.2"         |
+  | react-scripts:"5.0.0"             |
+  | react-social-login-buttons:"3.6.0 |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# _License_
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Copyright © 2022 Anuradha Barukula

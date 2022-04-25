@@ -5,8 +5,8 @@ import { FaUser } from "react-icons/fa";
 import {LinkContainer} from 'react-router-bootstrap'
 const NavbarLayout = () => {
   return (
-    <Container>
-      <Navbar bg="dark" variant="dark" expand="lg">
+    <Container  id="navbar-container">
+      <Navbar  variant="dark" className="bg-success" expand="lg" >
         <Navbar.Brand href="#home">
           {" "}
           <img
@@ -16,13 +16,13 @@ const NavbarLayout = () => {
             height="35"
             className="d-inline-block align-top"
           />{" "}
-          React App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">AboutUs</Nav.Link>
+            <LinkContainer to="/home">
+            <Nav.Link>Home</Nav.Link></LinkContainer>
+            <LinkContainer  to="/aboutus"><Nav.Link>AboutUs</Nav.Link></LinkContainer>
           </Nav>
           <Nav>
             <LinkContainer to="/signin">

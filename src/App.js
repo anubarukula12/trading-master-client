@@ -1,23 +1,20 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, createContext } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import NavbarLayout from "./components/Layout/NavbarLayout";
 import Footer from "./components/Layout/Footer";
 import ContentLayout from "./components/Layout/ContentLayout";
 import Routes from "./Utils/routes/Routes";
-import "./Utils/css/styles.css"
-import UserNavbarLayout from "./components/UserPage/UserNavbarLayout";
-import UserContentLayout from "./components/UserPage/UserContentLayout";
-function App() {
+import "./Utils/css/styles.css";
+const App = () => {
   return (
-    <div className="App">
-      {/* <NavbarLayout/>
-      <ContentLayout /> */}
-      <UserNavbarLayout/>
-      <UserContentLayout/>
+    <div>
+    <NavbarLayout/>
       <Routes />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

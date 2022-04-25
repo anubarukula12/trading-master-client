@@ -6,6 +6,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import DashBoard from './DashBoard';
 const UserProfile = () => {
 
    const [userlists, setuserlists] = useState([])
@@ -21,7 +22,8 @@ const UserProfile = () => {
             })
     }, [])
 
-    return (<div> {
+    return 
+        (<div> {
         userlists.map(userlist => (<div><label>Name</label><input type="text" value={userlist.username}></input></div>
     ))}</div>)
  

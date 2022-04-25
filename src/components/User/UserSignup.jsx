@@ -1,4 +1,5 @@
 import axios from "axios";
+import { FaUser,FaRegistered } from "react-icons/fa";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
@@ -28,18 +29,18 @@ const UserSignup = () => {
         if(error.response){
           setErrorMessage(error.response.data);
         }
-        // setErrorMessage(error.response.data);
+  
       });
   };
   return (
     <Container>
       <Row>
-        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+        <Col lg={5} md={6} sm={12} className="p-3 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
-          <h3>Create your account</h3>
+            <Form.Group className="mb-3">
+            <p style={{fontSize:"20px"}}><FaUser />Create your account</p>
             {successmessage && <h2 className="text-success">{successmessage}</h2>}
             {errormessage && <h2 className="text-danger">{errormessage}</h2>}
-            <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 className={`${errors.name && "invalid"}`}
@@ -160,7 +161,7 @@ const UserSignup = () => {
             <Button variant="primary" type="submit" className="form-control">
               SignUp
             </Button>
-            <p>
+            <p><FaRegistered/>
               Already registered?
               <span className="line">
                 <a href="/signin"  className="text-decoration-none">Sign In</a>
