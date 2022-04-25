@@ -1,12 +1,12 @@
-# **TradingMaster** Anuradha Barukula
+# <span style="color:gray">**TradingMaster** Anuradha Barukula
 
 ---
 
-# _Technologies Used_
+# <span style="color:grey"> _Technologies Used_
 
 ## TradingMaster is a full-stack MERN application.The MERN stack is a webdevelopment framework made up of the stack of MongoDB, Express.js, React.js, and Nodejs.
 
-# _Description_
+# <span style="color:grey">_Description_
 
 In TradingMaster the user registers and logins to see his stocks,portfolio,portfolioperfrmonance and EOD stock data.
 
@@ -15,7 +15,7 @@ In TradingMaster the user registers and logins to see his stocks,portfolio,portf
   -
   ***
 
-# _Project structure_
+# <span style="color:grey">_Project structure_
 
 ## trading-master-client- **Holds the client application**
 
@@ -23,39 +23,39 @@ In TradingMaster the user registers and logins to see his stocks,portfolio,portf
   -
 - src
   -
-  * **assests**-This folder holds images and css files
+  * **<span style="color:green">assests**-This folder holds images and css files
     -
-  * **components**-This folder holds all of the components that will make up our views
+  * **<span style="color:green">components**-This folder holds all of the components that will make up our views
     -
-  * **routes**-This folder holds all of our HTTP to URL path associations for each unique url
+  * **<span style="color:green">routes**-This folder holds all of our HTTP to URL path associations for each unique url
     -
-  * **App.js**-This is what renders all of our browser routes and renders views
+  * **<span style="color:green">App.js**-This is what renders all of our browser routes and renders views
     -
-  * **index.js**-This is what renders the react app by rendering App.js,should not change 
+  * **<span style="color:green">index.js**-This is what renders the react app by rendering App.js,should not change 
     -
-    **package.json**-Defines npm behaviors and packages for the client
+    **<span style="color:green">package.json**-Defines npm behaviors and packages for the client
     -
    ***
 
 ## trading-master-server-**Holds the server application**
 
-- **config**-Defines npm behaviors and packages for the client
+- **<span style="color:green">config**-Defines npm behaviors and packages for the client
   -
-- **controllers** - These hold all of the callback functions that each route will call
+- **<span style="color:green">controllers** - These hold all of the callback functions that each route will call
   -
-- ## **models** - This holds all of our data models
-- ## **routes** - This holds all of our HTTP to URL path associations for each unique url
-- **server.js** - Defines npm behaviors and packages for the client -
-  **package.json** - Defines npm behaviors and the scripts
+- ## **<span style="color:green">models** - This holds all of our data models
+- ## **<span style="color:green">routes** - This holds all of our HTTP to URL path associations for each unique url
+- **<span style="color:green">server.js** - Defines npm behaviors and packages for the client
+    -
+  **<span style="color:green">package.json** - Defines npm behaviors and
+ the scripts
+    -
+ ---
 
-* ---
-
-# _Run the Application_
+# <span style="color:grey"> _Run the Application_
 
 - **Client-side usage(PORT: 3000)**
-
-  -
-
+    -
   * **$cd trading-master-client** (go to the client folder)
   * **$npm i** (npm install packages)
   * **$npm start**
@@ -68,7 +68,7 @@ In TradingMaster the user registers and logins to see his stocks,portfolio,portf
   * **$npm i** (npm install packages)
   * **$npm run serve**
   ***
-# _Dependencies_
+# <span style="color:grey"> _Dependencies_
   | Client-side                       | Server-side             |
   | :-------------------------------- | :---------------------- |
   | axios : "^0.26.1"                 | bcrypt                  |
@@ -84,6 +84,6 @@ In TradingMaster the user registers and logins to see his stocks,portfolio,portf
 
 ---
 
-# _License_
+# <span style="color:grey"> _License_
 
 ## Copyright © 2022 Anuradha Barukula
