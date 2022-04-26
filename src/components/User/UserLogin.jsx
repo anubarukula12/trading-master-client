@@ -7,9 +7,9 @@ import { GoogleLoginButton } from "react-social-login-buttons";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../../Utils/css/styles.css";
+
 const UserLogin = () => {
    const navigate = useNavigate();
- const [auth,setAuth]=useState(false)
   const {
     register,
     handleSubmit,
@@ -20,13 +20,13 @@ const UserLogin = () => {
   const [successmessage, setSuccessMessage] = useState("");
   const [errormessage, setErrorMessage] = useState("");
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     reset();
     console.log(data);
-    axios
+  const res= await axios
       .post("http://localhost:5000/users/login", data)
       .then((res) => {
-        localStorage.setItem("token", res.data.token);setAuth(true)
+        localStorage.setItem("token", res.data.token);
       })
       .catch((error) => {
         if (error.response) {
@@ -35,7 +35,9 @@ const UserLogin = () => {
       });
   };
   useEffect(()=>{
-  if(auth){
+
+    console.log("the token in the login",localStorage.getItem('token'));
+  if(localStorage.getItem('token')){
     navigate('/dashboard')
   }
   });

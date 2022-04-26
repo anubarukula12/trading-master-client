@@ -7,10 +7,11 @@ import Footer from "./components/Layout/Footer";
 import ContentLayout from "./components/Layout/ContentLayout";
 import Routes from "./Utils/routes/Routes";
 import "./Utils/css/styles.css";
+
 const App = () => {
+  const [token,setToken]=useState(null)
   return (
     <div>
-    <NavbarLayout/>
       <Routes />
       <Footer />
     </div>
