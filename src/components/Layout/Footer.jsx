@@ -4,7 +4,7 @@ import { Navbar, NavbarBrand, Container } from "react-bootstrap";
     return (
       <div className="fixed-bottom">
         <Container id="footer">
-          <Navbar  variant="dark" expand="lg" className="justify-content-center bg-success">
+          <Navbar  variant="light" bg="light" expand="lg" className="justify-content-center" fixed="bottom">
             <NavbarBrand >Copyright © 2022 Anuradha Barukula</NavbarBrand>
           </Navbar>
         </Container>

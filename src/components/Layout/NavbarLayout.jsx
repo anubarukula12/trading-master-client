@@ -6,7 +6,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 const NavbarLayout = () => {
   return (
     <Container  id="navbar-container">
-      <Navbar  variant="dark" className="bg-success" expand="lg" >
+      <Navbar  bg="light" variant="light" fixed="top"  expand="lg" >
         <Navbar.Brand href="#home">
           {" "}
           <img
@@ -19,7 +19,7 @@ const NavbarLayout = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto"> 
             <LinkContainer to="/home">
             <Nav.Link>Home</Nav.Link></LinkContainer>
             <LinkContainer  to="/aboutus"><Nav.Link>AboutUs</Nav.Link></LinkContainer>

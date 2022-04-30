@@ -26,7 +26,7 @@ const DashBoard = () => {
 
   return (
     <Container id="navbar-container">
-      <Navbar  variant="dark" expand="lg" className="bg-success" id="navbar-text-color">
+      <Navbar  variant="light" expand="lg" >
         <Navbar.Brand href="#home">
           {" "}
           <img
@@ -40,6 +40,9 @@ const DashBoard = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+          <LinkContainer to="/userprofile">
+              <Nav.Link >Pofile</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/stocklist">
               <Nav.Link >Stocks</Nav.Link>
             </LinkContainer>

@@ -1,4 +1,4 @@
-import React, {useState,useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "../../Utils/css/styles.css";
 
 const UserLogin = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,7 +23,7 @@ const UserLogin = () => {
   const onSubmit = async (data) => {
     reset();
     console.log(data);
-  const res= await axios
+    const res = await axios
       .post("http://localhost:5000/users/login", data)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
@@ -34,25 +34,19 @@ const UserLogin = () => {
         }
       });
   };
-  useEffect(()=>{
-
-    console.log("the token in the login",localStorage.getItem('token'));
-  if(localStorage.getItem('token')){
-    navigate('/dashboard')
-  }
+  useEffect(() => {
+    console.log("the token in the login", localStorage.getItem("token"));
+    if (localStorage.getItem("token")) {
+      navigate("/dashboard");
+    }
   });
   return (
-    <Container id="container">
+    <Container>
       <Row>
-        <Col
-          lg={5}
-          md={6}
-          sm={12}
-          className="p-5 m-auto shadow-sm rounded-lg .ml-3"
-        >
+        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              {errormessage && <h2 className="text-danger">{errormessage}</h2>}
+              {errormessage && <p className="text-danger">{errormessage}</p>}
               <p style={{ fontSize: "20px" }}>
                 <FaUser />
                 Login in to your account
@@ -93,6 +87,7 @@ const UserLogin = () => {
                   required: "Password is Required!",
                 })}
               />
+              <small><a href="forgetPasswordController">ForgotPassword</a></small>
               {errors.password && (
                 <small className="text-danger">{errors.password.message}</small>
               )}

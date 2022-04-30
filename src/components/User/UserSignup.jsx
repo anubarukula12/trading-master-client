@@ -35,7 +35,7 @@ const UserSignup = () => {
   return (
     <Container>
       <Row>
-        <Col lg={5} md={6} sm={12} className="p-3 m-auto shadow-sm rounded-lg">
+        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3">
             <p style={{fontSize:"20px"}}><FaUser />Create your account</p>
@@ -158,9 +158,9 @@ const UserSignup = () => {
                 </small>
               )}
             </Form.Group>
-            <Button variant="primary" type="submit" className="form-control">
+           <Button variant="primary" type="submit" className="form-control">
               SignUp
-            </Button>
+            </Button> 
             <p><FaRegistered/>
               Already registered?
               <span className="line">
