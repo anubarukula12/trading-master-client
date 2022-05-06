@@ -10,7 +10,7 @@ const DashBoard = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/userProfile", {
+      .get("http://localhost:5000/userprofile", {
         headers: {
           "x-token": localStorage.getItem("token"),
         },
@@ -21,12 +21,12 @@ const DashBoard = () => {
     navigate("/signin");
   }
   const logoutHandler = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   };
 
   return (
     <Container id="navbar-container">
-      <Navbar  variant="light" expand="lg" >
+      <Navbar variant="light" expand="lg">
         <Navbar.Brand href="#home">
           {" "}
           <img
@@ -40,17 +40,17 @@ const DashBoard = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <LinkContainer to="/userprofile">
-              <Nav.Link >Pofile</Nav.Link>
+            <LinkContainer to="/userprofile">
+              <Nav.Link>Pofile</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/stocklist">
-              <Nav.Link >Stocks</Nav.Link>
+            <LinkContainer to="/addportfolio">
+              <Nav.Link>Add Stock to Portfolio </Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/portfolio">
-              <Nav.Link>Portfolio</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/performance">
+            <LinkContainer to="/portfolioperformanve">
               <Nav.Link>PortfolioPerformance</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/portfolios">
+              <Nav.Link>UserPortfolioList</Nav.Link>
             </LinkContainer>
           </Nav>
           <Nav>

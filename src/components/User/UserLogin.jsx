@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaUser } from "react-icons/fa";
 import { useForm } from "react-hook-form";
@@ -15,18 +15,20 @@ const UserLogin = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    trigger,
   } = useForm();
   const [successmessage, setSuccessMessage] = useState("");
   const [errormessage, setErrorMessage] = useState("");
-
   const onSubmit = async (data) => {
     reset();
     console.log(data);
-    const res = await axios
+
+    await axios
       .post("http://localhost:5000/users/login", data)
       .then((res) => {
+        console.log("response data in login", res.data.user.role);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("role", res.data.user.role);
+        localStorage.setItem("user_id",res.data.user.id);
       })
       .catch((error) => {
         if (error.response) {
@@ -35,18 +37,26 @@ const UserLogin = () => {
       });
   };
   useEffect(() => {
-    console.log("the token in the login", localStorage.getItem("token"));
-    if (localStorage.getItem("token")) {
+    const role = localStorage.getItem("role");
+    if (localStorage.getItem("token") && role === "user") {
       navigate("/dashboard");
+    } else {
+      if (localStorage.getItem("token") && role === "admin") {
+        navigate("/adminnavbar");
+      }
     }
   });
   return (
     <Container>
       <Row>
-        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-lg rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              {errormessage && <p className="text-danger">{errormessage}</p>}
+              {errormessage && (
+                <h3 className="bg-danger text-white p-3 m-auto shadow-lg rounded-lg">
+                  {errormessage}
+                </h3>
+              )}
               <p style={{ fontSize: "20px" }}>
                 <FaUser />
                 Login in to your account
@@ -87,7 +97,9 @@ const UserLogin = () => {
                   required: "Password is Required!",
                 })}
               />
-              <small><a href="forgetPasswordController">ForgotPassword</a></small>
+              <small>
+                <a href="forgetPasswordController">ForgotPassword</a>
+              </small>
               {errors.password && (
                 <small className="text-danger">{errors.password.message}</small>
               )}

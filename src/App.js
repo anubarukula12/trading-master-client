@@ -12,6 +12,7 @@ const App = () => {
   const [token,setToken]=useState(null)
   return (
     <div>
+    
       <Routes />
       <Footer />
     </div>

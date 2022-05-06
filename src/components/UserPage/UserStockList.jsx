@@ -1,7 +1,7 @@
 import React from 'react';
-const StockList =()=>{
+const UserStockList =()=>{
     return(
         <div>Iam in stocks</div>
     )
 }
-export default StockList;
+export default UserStockList;
