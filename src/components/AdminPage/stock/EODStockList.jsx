@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AdminNavbar from "../AdminNavbar";
+import { Button, Col, Container, Row } from "react-bootstrap";
 const Stock = (props) => (
   <tr>
     <td>{props.eod_stock_data.eod_date}</td>
@@ -84,6 +85,14 @@ const EODStockList = () => {
   return (
     <div>
       <AdminNavbar />
+      <Container>
+        <Row>
+          <Col
+            lg={16}
+            md={16}
+            sm={12}
+            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
+          >
       <h3>EOD List</h3>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
@@ -102,7 +111,7 @@ const EODStockList = () => {
           </tr>
         </thead>
         <tbody>{eod_stock_dataList()}</tbody>
-      </table>
+      </table></Col></Row></Container>
     </div>
   );
 };

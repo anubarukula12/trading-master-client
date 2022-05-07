@@ -49,7 +49,7 @@ const UserLogin = () => {
   return (
     <Container>
       <Row>
-        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-lg rounded-lg">
+        <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               {errormessage && (

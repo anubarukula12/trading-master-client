@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Col, Container, Row, Button } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { Col, Container, Row } from "react-bootstrap";
 import DashBoard from "./DashBoard";
 import axios from "axios";
-import DatePicker from "react-datetime";
-import moment from "moment";
 export default function AddPortfolio() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger,
-  } = useForm();
+ 
   const [form, setForm] = useState({
     user_id: localStorage.getItem("user_id"),
     code: "",

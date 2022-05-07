@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AdminNavbar from "./AdminNavbar";
+import { LinkContainer } from "react-router-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 const Record = (props) => (
   <tr>
     <td>{props.record.name}</td>
@@ -48,7 +50,7 @@ const RecordList = () => {
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
   };
-  
+
   // This method will map out the records on the table
   const recordList = () => {
     return records.map((record) => {
@@ -66,7 +68,18 @@ const RecordList = () => {
   return (
     <div>
       <AdminNavbar />
+      <Container>
+        <Row>
+          <Col
+            lg={16}
+            md={4}
+            sm={12}
+            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
+          >
       <h3>Country List</h3>
+      <LinkContainer to="/create">
+        <Button>New Country</Button>
+      </LinkContainer>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
           <tr>
@@ -77,7 +90,7 @@ const RecordList = () => {
           </tr>
         </thead>
         <tbody>{recordList()}</tbody>
-      </table>
+      </table></Col></Row></Container>
     </div>
   );
 };

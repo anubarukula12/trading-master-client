@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DashBoard from "./DashBoard";
-
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 const Portfolio = (props) => (
   <tr>
     <td>{props.portfolio.code}</td>
@@ -13,7 +14,10 @@ const Portfolio = (props) => (
     <td>{props.portfolio.purchase_date}</td>
     <td>{props.portfolio.sale_date}</td>
     <td>
-      <Link className="btn btn-link" to={`/portfolio/edit/${props.portfolio._id}`}>
+      <Link
+        className="btn btn-link"
+        to={`/portfolio_stock/edit/${props.portfolio._id}`}
+      >
         Edit
       </Link>{" "}
       |
@@ -35,19 +39,17 @@ export default function PortfolioList() {
   // This method fetches the portfolios from the database.
   useEffect(() => {
     async function getPortfolios() {
-        const id=localStorage.getItem("user_id")
-       await axios.get(`http://localhost:5000/portfolio/${id}`)
-       .then((res) => {
-        const portfolios = res.data;
-        console.log("portfolios are", portfolios);
-        setPortfolios(portfolios);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-
-      
-    
+      const id = localStorage.getItem("user_id");
+      await axios
+        .get(`http://localhost:5000/portfolio/${id}`)
+        .then((res) => {
+          const portfolios = res.data;
+          console.log("portfolios are", portfolios);
+          setPortfolios(portfolios);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
     }
 
     getPortfolios();
@@ -81,23 +83,38 @@ export default function PortfolioList() {
   // This following section will display the table with the portfolios of individuals.
   return (
     <div>
-      <h3>Portfolio List</h3>
-      <DashBoard/>
-      <table className="table table-striped" style={{ marginTop: 20 }}>
-        <thead>
-          <tr>
-            <th>Code</th>
-            <th>Buy Price</th>
-            <th>Buy Quantity</th>
-            <th>Sell Price</th>
-            <th>Sell Quantity</th>
-            <th>Buy Date</th>
-            <th>Sell Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{portfolioList()}</tbody>
-      </table>
+      <DashBoard />
+      <Container>
+        <Row>
+          <Col
+            lg={16}
+            md={16}
+            sm={12}
+            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
+          >
+            <h3>Portfolio List</h3>
+            <LinkContainer to="/addportfolio">
+              <Button> Add Stock Portfolio </Button>
+            </LinkContainer>
+
+            <table className="table table-striped" style={{ marginTop: 20 }}>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Buy Price</th>
+                  <th>Buy Quantity</th>
+                  <th>Sell Price</th>
+                  <th>Sell Quantity</th>
+                  <th>Buy Date</th>
+                  <th>Sell Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>{portfolioList()}</tbody>
+            </table>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

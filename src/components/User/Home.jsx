@@ -1,5 +1,4 @@
 import React from "react";
-import ContentLayout from "../../components/Layout/ContentLayout";
 import { Col, Container, Row } from "react-bootstrap";
 const Home = () => {
   return (

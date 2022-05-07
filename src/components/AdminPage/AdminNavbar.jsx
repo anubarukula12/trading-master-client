@@ -1,13 +1,11 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
 import { FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Utils/images/logo.jpeg";
-// We import NavLink to utilize the react router.
-import { NavLink } from "react-router-dom";
+
 const logoutHandler = () => {
   localStorage.removeItem('token');
 };
@@ -30,11 +28,11 @@ const AdminNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-        <LinkContainer to="/create">
-            <Nav.Link >Create Record</Nav.Link>
+        <LinkContainer to="/country">
+            <Nav.Link >Country List</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/addstock">
-            <Nav.Link >Add Stock</Nav.Link>
+          <LinkContainer to="/stocks">
+            <Nav.Link >StockList</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/excelupload">
             <Nav.Link>Excel Upload</Nav.Link>

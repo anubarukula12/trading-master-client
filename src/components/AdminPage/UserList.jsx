@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import AdminNavbar from "./AdminNavbar";
+import { Col, Container, Row } from "react-bootstrap";
 
-const UserData = (props) => (
+const User = (props) => (
   <tr>
     <td>{props.user.name}</td>
     <td>{props.user.email}</td>
     <td>{props.user.role}</td>
-    <td>
+    {/* <td>
       <Link className="btn btn-link" to={`/user/edit/${props.user._id}`}>
         Edit
       </Link>{" "}
@@ -20,27 +21,27 @@ const UserData = (props) => (
       >
         Delete
       </button>
-    </td>
+    </td> */}
   </tr>
 );
 
-const UserList = async () => {
+export default function UserList() {
   const [users, setUsers] = useState([]);
+
   // This method fetches the users from the database.
   useEffect(() => {
-    const getUsers = async () => {
+    async function getUsers() {
       await axios
         .get(`http://localhost:5000/user/`)
 
         .then((res) => {
           const users = res.data;
-          console.log("users are", users);
           setUsers(users);
         })
         .catch((err) => {
           console.log(err.message);
         });
-    };
+    }
 
     getUsers();
 
@@ -48,20 +49,20 @@ const UserList = async () => {
   }, [users.length]);
 
   // This method will delete a user
-  const deleteUser = async (id) => {
+  async function deleteUser(id) {
     await fetch(`http://localhost:5000/user/delete/${id}`, {
       method: "DELETE",
     });
 
     const newUsers = users.filter((el) => el._id !== id);
     setUsers(newUsers);
-  };
+  }
 
   // This method will map out the users on the table
   function userList() {
     return users.map((user) => {
       return (
-        <UserData
+        <User
           user={user}
           deleteUser={() => deleteUser(user._id)}
           key={user._id}
@@ -73,19 +74,29 @@ const UserList = async () => {
   // This following section will display the table with the users of individuals.
   return (
     <div>
-      <h3>User List</h3>
-      <table className="table table-striped" style={{ marginTop: 20 }}>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{userList()}</tbody>
-      </table>
+      <AdminNavbar />
+      <Container>
+        <Row>
+          <Col
+            lg={16}
+            md={4}
+            sm={12}
+            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
+          >
+            <h3>Users List</h3>
+            <table className="table table-striped" style={{ marginTop: 20 }}>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>{userList()}</tbody>
+            </table>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
-};
-export default UserList;
+}

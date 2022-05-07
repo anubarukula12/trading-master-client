@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../../Utils/images/logo.jpeg";
 import { FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import axios from "axios";
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -42,9 +42,6 @@ const DashBoard = () => {
           <Nav className="me-auto">
             <LinkContainer to="/userprofile">
               <Nav.Link>Pofile</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/addportfolio">
-              <Nav.Link>Add Stock to Portfolio </Nav.Link>
             </LinkContainer>
             <LinkContainer to="/portfolioperformanve">
               <Nav.Link>PortfolioPerformance</Nav.Link>

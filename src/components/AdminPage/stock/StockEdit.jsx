@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import { Col, Container, Row,Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 const StockEdit=()=>{
   const [form, setForm] = useState({

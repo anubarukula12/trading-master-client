@@ -32,7 +32,7 @@ const UserProfile = () => {
               lg={5}
               md={6}
               sm={12}
-              className="p-5 m-auto shadow-lg rounded-lg"
+              className="p-5 m-auto shadow-sm rounded-lg"
             >
               <h2>
                 {data.name.charAt(0).toUpperCase() + data.name.slice(1)}Profile
@@ -58,7 +58,7 @@ const UserProfile = () => {
               </Form>
 
               <Button variant="primary" type="submit" className="form-control">
-                EDIT{" "}
+                ChangePassword{" "}
               </Button>
             </Col>
           </Row>
