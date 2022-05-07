@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DashBoard from "./DashBoard";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import moment from 'moment';
 const Portfolio = (props) => (
   <tr>
     <td>{props.portfolio.code}</td>
@@ -11,8 +12,9 @@ const Portfolio = (props) => (
     <td>{props.portfolio.purchase_quantity}</td>
     <td>{props.portfolio.sale_price}</td>
     <td>{props.portfolio.sale_quantity}</td>
-    <td>{props.portfolio.purchase_date}</td>
-    <td>{props.portfolio.sale_date}</td>
+    <td>{moment(props.portfolio.purchase_date).format('DD-MMM-YYYY')}</td>
+   
+    <td>{isNaN(props.portfolio.sale_date) ? moment(props.portfolio.sale_date).format('DD-MMM-YYYY'): ''}</td>
     <td>
       <Link
         className="btn btn-link"
@@ -44,7 +46,6 @@ export default function PortfolioList() {
         .get(`http://localhost:5000/portfolio/${id}`)
         .then((res) => {
           const portfolios = res.data;
-          console.log("portfolios are", portfolios);
           setPortfolios(portfolios);
         })
         .catch((err) => {

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import DashBoard from "./DashBoard";
 const UserProfile = () => {
   const [data, setData] = useState(null);
@@ -35,7 +36,7 @@ const UserProfile = () => {
               className="p-5 m-auto shadow-sm rounded-lg"
             >
               <h2>
-                {data.name.charAt(0).toUpperCase() + data.name.slice(1)}Profile
+                {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
               </h2>
               <Form>
                 <Form.Group className="mb-3">
@@ -48,18 +49,23 @@ const UserProfile = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="text" value={data.email} />
+                  <Form.Label>Username:</Form.Label>
+                  <Form.Control type="text" value={data.user_name} />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" value={data.password} />
+                  <Form.Label>Email:</Form.Label>
+                  <Form.Control type="email" value={data.email} />
                 </Form.Group>
               </Form>
-
-              <Button variant="primary" type="submit" className="form-control">
+              <Link
+        className="btn btn-link"
+        to={"/passwordchange"}
+      >
+         <Button variant="primary" type="submit" className="form-control">
                 ChangePassword{" "}
               </Button>
+      </Link>
+             
             </Col>
           </Row>
         </Container>

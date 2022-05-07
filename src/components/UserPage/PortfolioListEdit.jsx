@@ -25,7 +25,7 @@ const PortfolioListEdit = () => {
 
         .then((res) => {
           const record = res.data;
-          console.log("portfolio is", record);
+          console.log("portfolio in set form", record);
           setForm(record);
         })
         .catch((err) => {
@@ -91,7 +91,7 @@ const PortfolioListEdit = () => {
                   readOnly
                 />
               </div>
-              {/* <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="name">PurchaseQuantity</label>
                 <input
                   type="text"
@@ -155,7 +155,7 @@ const PortfolioListEdit = () => {
               <div className="form-group">
                 <label htmlFor="code">SaleDate</label>
                 <input
-                  type="text"
+                  type="date"
                   className="form-control"
                   id="sale_date"
                   value={form.sale_date}
@@ -169,7 +169,7 @@ const PortfolioListEdit = () => {
                   value="Update Portfolio "
                   className="btn btn-primary"
                 />
-              </div> */}
+              </div>
             </form>
           </Col>
         </Row>

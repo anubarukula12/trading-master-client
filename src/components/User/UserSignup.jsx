@@ -16,7 +16,6 @@ const UserSignup = () => {
   const [successmessage, setSuccessMessage] = useState("")
   const [errormessage, setErrorMessage] = useState("")
   const onSubmit = (data) => {
-    console.log(data);
     reset();
     axios
       .post("http://localhost:5000/users/register", data)

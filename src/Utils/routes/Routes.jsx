@@ -22,6 +22,7 @@ import UserList from "../../components/AdminPage/UserList";
 import AddPortfolio from "../../components/UserPage/AddPortfolio";
 import PortfolioList from "../../components/UserPage/PortfolioList";
 import PortfolioListEdit from "../../components/UserPage/PortfolioListEdit";
+import PasswordChange from "../../components/UserPage/PasswordChange"
 const routes = () => {
   return (
     <div className="route-style">
@@ -41,6 +42,7 @@ const routes = () => {
           <Route path="/addportfolio" element={<AddPortfolio />} />
           <Route path="/portfolios" element={<PortfolioList />} />
           <Route path="/portfolio_stock/edit/:id" element={<PortfolioListEdit />} />
+          <Route path="/passwordchange" element={<PasswordChange/>} />
         </Route>
       </Routes>
 

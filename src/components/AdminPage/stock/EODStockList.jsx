@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AdminNavbar from "../AdminNavbar";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import moment from "moment";
 const Stock = (props) => (
   <tr>
-    <td>{props.eod_stock_data.eod_date}</td>
+    <td>{moment(props.eod_stock_data.eod_date).format("DD-MMM-YYYY")}</td>
     <td>{props.eod_stock_data.stock_id}</td>
     <td>{props.eod_stock_data.open}</td>
     <td>{props.eod_stock_data.high}</td>
@@ -93,25 +94,28 @@ const EODStockList = () => {
             sm={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
           >
-      <h3>EOD List</h3>
-      <table className="table table-striped" style={{ marginTop: 20 }}>
-        <thead>
-          <tr>
-            <th>EOD_DATE</th>
-            <th>STOCK_ID</th>
-            <th>OPEN</th>
-            <th>HIGH</th>
-            <th>LOW</th>
-            <th>LAST</th>
-            <th>TECHNICAL_RATING</th>
-            <th>OSCILLATORS_RATING</th>
-            <th>MOVING_AVERAGES_RATING</th>
+            <h3>EOD List</h3>
+            <table className="table table-striped" style={{ marginTop: 20 }}>
+              <thead>
+                <tr>
+                  <th>EOD_DATE</th>
+                  <th>STOCK_ID</th>
+                  <th>OPEN</th>
+                  <th>HIGH</th>
+                  <th>LOW</th>
+                  <th>LAST</th>
+                  <th>TECHNICAL_RATING</th>
+                  <th>OSCILLATORS_RATING</th>
+                  <th>MOVING_AVERAGES_RATING</th>
 
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{eod_stock_dataList()}</tbody>
-      </table></Col></Row></Container>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>{eod_stock_dataList()}</tbody>
+            </table>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
