@@ -5,7 +5,7 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import DashBoard from "./DashBoard";
 const UserProfile = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/userprofile", {

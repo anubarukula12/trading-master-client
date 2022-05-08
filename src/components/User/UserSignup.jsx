@@ -17,6 +17,7 @@ const UserSignup = () => {
   const [errormessage, setErrorMessage] = useState("")
   const onSubmit = (data) => {
     reset();
+ alert(data);
     axios
       .post("http://localhost:5000/users/register", data)
 

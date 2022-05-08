@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate,BrowserRouter } from "react-router-dom";
 import ContentLayout from "../../components/Layout/ContentLayout";
 import UserLogin from "../../components/User/UserLogin";
 import UserSignup from "../../components/User/UserSignup";
@@ -28,6 +28,7 @@ const routes = () => {
     <div className="route-style">
       <Routes>
         <Route path="/" element={<ContentLayout />}>
+          <Route path="/" element={<Navigate to="/home"/>}/>
           <Route path="/signin" element={<UserLogin />} />
           <Route path="/signup" element={<UserSignup />} />
           <Route path="/aboutus" element={<AboutUs />} />
@@ -35,20 +36,19 @@ const routes = () => {
         </Route>
       </Routes>
       <Routes>
+      
         <Route path="/" element={<ProtectedRoutes role="user" />}>
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/stocklist" element={<StockList />} />
           <Route path="/addportfolio" element={<AddPortfolio />} />
           <Route path="/portfolios" element={<PortfolioList />} />
           <Route path="/portfolio_stock/edit/:id" element={<PortfolioListEdit />} />
           <Route path="/passwordchange" element={<PasswordChange/>} />
-        </Route>
-      </Routes>
-
+          <Route path="/dashboard" element={<Navigate to="/portfolios" replace/>}/>
+        </Route>   </Routes>
       <Routes>
         <Route path="/" element={<ProtectedRoutes role="admin" />}>
-          <Route path="/adminnavbar" element={<AdminNavbar />} />
+          {/* <Route path="/adminnavbar" element={<AdminNavbar />} /> */}
           <Route path="/country" element={<RecordList />} />
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/stock/edit/:id" element={<StockEdit />} />
@@ -62,6 +62,7 @@ const routes = () => {
             path="/eod_stock_data/edit/:id"
             element={<Eodstocklistedit />}
           />
+             <Route path="/adminnavbar" element={<Navigate to="/excelupload" replace/>}/>
         </Route>
       </Routes>
     </div>
