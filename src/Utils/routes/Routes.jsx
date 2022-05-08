@@ -28,11 +28,11 @@ const routes = () => {
     <div className="route-style">
       <Routes>
         <Route path="/" element={<ContentLayout />}>
-          <Route path="/" element={<Navigate to="/home"/>}/>
           <Route path="/signin" element={<UserLogin />} />
           <Route path="/signup" element={<UserSignup />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/home" replace/>}/>
         </Route>
       </Routes>
       <Routes>
