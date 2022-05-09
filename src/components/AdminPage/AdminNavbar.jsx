@@ -14,16 +14,10 @@ const AdminNavbar = () => {
 
   return (
     <Container id="navbar-container">
-    <Navbar  variant="light" expand="lg" >
+    <Navbar bg="primary" variant="dark" fixed="top"  expand="lg" >
       <Navbar.Brand href="#home">
-        {" "}
-        <img
-          alt=""
-          src={logo}
-          width="35"
-          height="35"
-          className="d-inline-block align-top"
-        />{" "}
+        
+      <h3>TRADING MASTER</h3>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -32,10 +26,13 @@ const AdminNavbar = () => {
             <Nav.Link >Country List</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/stocks">
-            <Nav.Link >StockList</Nav.Link>
+            <Nav.Link >Stock List</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/excelupload">
             <Nav.Link>Excel Upload</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/eodstockdata">
+            <Nav.Link>EOD Stock Data</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/userlist">
             <Nav.Link>Users</Nav.Link>

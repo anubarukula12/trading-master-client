@@ -13,16 +13,7 @@ const Home = () => {
           >
             <h2></h2>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Repellendus autem hic excepturi aspernatur neque natus delectus
-              dolore odio, fugiat et iusto voluptas voluptates rerum? Amet
-              dolores veritatis consequatur placeat enim! Cum nisi temporibus
-              blanditiis reiciendis culpa nulla perferendis aspernatur
-              distinctio consequuntur deserunt! Repellendus, esse ea ex omnis
-              dolorem, eaque eius minima temporibus eum rem saepe vel voluptatum
-              reiciendis minus? Maiores! Commodi accusamus incidunt saepellitia,
-              et omnis similique rerum voluptates repudiandae laborum adipisci
-              atque optio maiores. Reprehenderit consequuntur nam assumenda.
+              <b color="blue">Trading Master</b> system is designed for uploading / adding  eod stock ratings pulled from other downstream systems and perform various actions on stocks and come up with their own ratings.
             </p>
           </Col>
         </Row>

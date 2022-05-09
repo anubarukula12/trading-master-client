@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import { Col, Container, Row, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import DashBoard from "./DashBoard";
 import axios from "axios";
-import { FaChromecast } from "react-icons/fa";
 const PortfolioListEdit = () => {
   const [form, setForm] = useState({
     code: "",
@@ -78,7 +77,7 @@ const PortfolioListEdit = () => {
             sm={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
           >
-            <h3>UpdatePorfolio List</h3>
+            <h3>Update Porfolio List</h3>
             <form onSubmit={onSubmit}>
               <div className="form-group">
                 <label htmlFor="code">Code</label>
@@ -92,7 +91,7 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">PurchaseQuantity</label>
+                <label htmlFor="name">Purchase Quantity</label>
                 <input
                   type="text"
                   className="form-control"
@@ -105,7 +104,7 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="code">PurchasePrice</label>
+                <label htmlFor="code">Purchase Price</label>
                 <input
                   type="text"
                   className="form-control"
@@ -118,12 +117,12 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">PurchaseDate</label>
+                <label htmlFor="name">Purchase Date</label>
                 <input
                   type="text"
                   className="form-control"
                   id="purchase_date"
-                  value={form.purchase_date}
+                  value={(form.purchase_date).split("T")[0]}
                   onChange={(e) =>
                     updateForm({ purchase_date: e.target.value })
                   }
@@ -131,7 +130,7 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="code">SaleQuantity</label>
+                <label htmlFor="code">Sale Quantity</label>
                 <input
                   type="text"
                   className="form-control"
@@ -143,7 +142,7 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="code">SalePrice</label>
+                <label htmlFor="code">Sale Price</label>
                 <input
                   type="text"
                   className="form-control"
@@ -153,7 +152,7 @@ const PortfolioListEdit = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="code">SaleDate</label>
+                <label htmlFor="code">Sale Date</label>
                 <input
                   type="date"
                   className="form-control"

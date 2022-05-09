@@ -77,14 +77,9 @@ export default function UserList() {
       <AdminNavbar />
       <Container>
         <Row>
-          <Col
-            lg={16}
-            md={4}
-            sm={12}
-            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
-          >
+          <Col xs={12}  className="p-5 m-auto shadow-sm rounded-lg .ml-3">
             <h3>Users List</h3>
-            <table className="table table-striped" style={{ marginTop: 20 }}>
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>Name</th>

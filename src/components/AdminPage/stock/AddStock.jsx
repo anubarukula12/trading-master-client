@@ -58,7 +58,7 @@ const AddStock = () => {
             sm={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
           >
-            <h3>Create New Record</h3>
+            <h3>Create New Stock</h3>
             <form onSubmit={onSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>

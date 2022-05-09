@@ -6,16 +6,10 @@ import {LinkContainer} from 'react-router-bootstrap'
 const NavbarLayout = () => {
   return (
     <Container  id="navbar-container">
-      <Navbar  bg="light" variant="light" fixed="top"  expand="lg" >
+      <Navbar  bg="primary" variant="dark" fixed="top"  expand="lg" >
         <Navbar.Brand href="#home">
-          {" "}
-          <img
-            alt=""
-            src={logo}
-            width="35"
-            height="35"
-            className="d-inline-block align-top"
-          />{" "}
+         <h3>TRADING MASTER</h3>
+         
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

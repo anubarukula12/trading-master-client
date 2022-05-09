@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import AdminNavbar from "../AdminNavbar";
-import axios from 'axios';
+import axios from "axios";
 const Eodstocklistedit = () => {
   const [form, setForm] = useState({
     eod_date: "",
@@ -20,12 +20,10 @@ const Eodstocklistedit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData= async()=> {
+    const fetchData = async () => {
       const id = params.id.toString();
       await axios
-        .get(
-          `http://localhost:5000/eod_stock_data/${params.id.toString()}`
-        )
+        .get(`http://localhost:5000/eod_stock_data/${params.id.toString()}`)
 
         .then((res) => {
           const record = res.data;
@@ -34,7 +32,7 @@ const Eodstocklistedit = () => {
         .catch((err) => {
           console.log(err.message);
         });
-    }
+    };
 
     fetchData();
 
@@ -73,15 +71,10 @@ const Eodstocklistedit = () => {
   // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
-            <AdminNavbar/>
+      <AdminNavbar />
       <Container>
         <Row>
-          <Col
-            lg={5}
-            md={6}
-            sm={12}
-            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
-          >
+          <Col lg={5} md={6} sm={12} className="p-5 m-auto .ml-3">
             <h3>Update EOD Stock</h3>
             <form onSubmit={onSubmit}>
               <div className="form-group">

@@ -4,6 +4,7 @@ import axios from "axios";
 import AdminNavbar from "./AdminNavbar";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { FaEdit,FaTrash } from "react-icons/fa";
 const Record = (props) => (
   <tr>
     <td>{props.record.name}</td>
@@ -11,16 +12,18 @@ const Record = (props) => (
     <td>{props.record.status}</td>
     <td>
       <Link className="btn btn-link" to={`/edit/${props.record._id}`}>
-        Edit
+  <FaEdit/>  
       </Link>{" "}
       |
       <button
-        className="btn btn-link"
+        className="btn btn-link"    style={{"border":"none", "size":"1000px"}}
         onClick={() => {
+          const confirmBox = window.confirm("Do you really want to delete ");
+          if (confirmBox === true) {
           props.deleteRecord(props.record._id);
         }}
-      >
-        Delete
+        }>
+       <FaTrash color="red"/>
       </button>
     </td>
   </tr>
@@ -71,9 +74,8 @@ const RecordList = () => {
       <Container>
         <Row>
           <Col
-            lg={16}
-            md={4}
-            sm={12}
+         
+            xs={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
           >
       <h3>Country List</h3>

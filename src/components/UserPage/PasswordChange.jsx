@@ -83,7 +83,7 @@ const PasswordChange = () => {
               <Form.Label>NewPassword</Form.Label>
               <Form.Control
                 className={`${errors.password && "invalid"}`}
-                type="newpassword"
+                type="password"
                 placeholder="NewPassword"
                 name="newpassword"
                 autoComplete="off"
@@ -108,7 +108,7 @@ const PasswordChange = () => {
               <Form.Label>ConfirmNewPassword</Form.Label>
               <Form.Control
                 className={`${errors.confirmpassword && "invalid"}`}
-                type="confirmpassword"
+                type="password"
                 placeholder="confirmPassword"
                 name="confirmpassword"
                 {...register("confirmpassword", {

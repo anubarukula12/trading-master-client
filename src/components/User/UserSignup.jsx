@@ -33,14 +33,14 @@ const UserSignup = () => {
       });
   };
   return (
-    <Container>
+    <Container id="signin-container">
       <Row>
         <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3">
             <p style={{fontSize:"20px"}}><FaUser />Create your account</p>
-            {successmessage && <h2 className="bg-success text-white p-3 m-auto shadow-lg rounded-lg">{successmessage}</h2>}
-            {errormessage && <h2 className="bg-danger text-white p-3 m-auto shadow-lg rounded-lg">{errormessage}</h2>}
+            {successmessage && <h5 className="bg-success text-white p-3 m-auto shadow-lg rounded-lg">{successmessage}</h5>}
+            {errormessage && <h5 className="bg-danger text-white p-3 m-auto shadow-lg rounded-lg">{errormessage}</h5>}
               <Form.Label>Name</Form.Label>
               <Form.Control
                 className={`${errors.name && "invalid"}`}

@@ -2,16 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AdminNavbar from "../AdminNavbar";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import moment from "moment";
+import { Col, Container, Row } from "react-bootstrap";
+import { FaEdit, FaTrash,FaRupeeSign } from "react-icons/fa";
 const Stock = (props) => (
   <tr>
-    <td>{moment(props.eod_stock_data.eod_date).format("DD-MMM-YYYY")}</td>
+    <td>{props.eod_stock_data.eod_date.split("T")[0]}</td>
     <td>{props.eod_stock_data.stock_id}</td>
-    <td>{props.eod_stock_data.open}</td>
-    <td>{props.eod_stock_data.high}</td>
-    <td>{props.eod_stock_data.low}</td>
-    <td>{props.eod_stock_data.last}</td>
+    <td><FaRupeeSign/>{props.eod_stock_data.open}</td>
+    <td><FaRupeeSign/>{props.eod_stock_data.high}</td>
+    <td><FaRupeeSign/>{props.eod_stock_data.low}</td>
+    <td><FaRupeeSign/>{props.eod_stock_data.last}</td>
     <td>{props.eod_stock_data.technical_rating}</td>
     <td>{props.eod_stock_data.oscillators_rating}</td>
     <td>{props.eod_stock_data.moving_averages_rating}</td>
@@ -21,16 +21,19 @@ const Stock = (props) => (
         className="btn btn-link"
         to={`/eod_stock_data/edit/${props.eod_stock_data._id}`}
       >
-        Edit
+        <FaEdit />
       </Link>{" "}
       |
       <button
         className="btn btn-link"
         onClick={() => {
-          props.deleteStock(props.eod_stock_data._id);
+          const confirmBox = window.confirm("Do you really want to delete ");
+          if (confirmBox === true) {
+            props.deleteStock(props.eod_stock_data._id);
+          }
         }}
       >
-        Delete
+        <FaTrash color="red" />
       </button>
     </td>
   </tr>
@@ -88,13 +91,8 @@ const EODStockList = () => {
       <AdminNavbar />
       <Container>
         <Row>
-          <Col
-            lg={16}
-            md={16}
-            sm={12}
-            className="p-5 m-auto shadow-sm rounded-lg .ml-3"
-          >
-            <h3>EOD List</h3>
+          <Col xs={12} className="p-5 m-auto shadow-sm rounded-lg .ml-3">
+            <h3>EOD Stock Data</h3>
             <table className="table table-striped" style={{ marginTop: 20 }}>
               <thead>
                 <tr>

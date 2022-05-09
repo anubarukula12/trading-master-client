@@ -25,10 +25,10 @@ const UserProfile = () => {
 
   return (
     <div>
+                <DashBoard />
       {data && (
         <Container>
-          <DashBoard />
-          <Row>
+           <Row>
             <Col
               lg={5}
               md={6}

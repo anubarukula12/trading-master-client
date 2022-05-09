@@ -6,7 +6,6 @@ import * as XLSX from "xlsx";
 import axios from "axios";
 
 const ExcelUpload = () => {
-  let datefield;
   const [form, setForm] = useState({
     eod_date: "",
     stock_id: "",
@@ -82,7 +81,7 @@ const ExcelUpload = () => {
 
         const record = await response.json();
         console.log("record", record, stock_data);
-        if (record.length == 0) {
+        if (record.length === 0) {
           addStock(stock_data);
           return;
         }
@@ -148,11 +147,9 @@ const ExcelUpload = () => {
       <Container>
         <Row>
           <Col
-            lg={5}
-            md={6}
-            sm={12}
+            xs={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
-          >
+          ><h3>Upload Excel File</h3>
             <input type="date" onChange={dateField} />
             <br></br>
             <br></br>

@@ -46,12 +46,15 @@
     background-repeat: none;
   }
 #container{
-  margin-top:10em;
+  margin-top:6em;
 }
 #navbar-container{
   margin-top:2em;
 }
 #footer{
   margin-bottom: 1em;
+}
+#signin-container{
+  margin-top:4em;
 }
 

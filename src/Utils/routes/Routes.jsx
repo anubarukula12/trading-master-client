@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate,BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import ContentLayout from "../../components/Layout/ContentLayout";
 import UserLogin from "../../components/User/UserLogin";
 import UserSignup from "../../components/User/UserSignup";
@@ -22,7 +22,8 @@ import UserList from "../../components/AdminPage/UserList";
 import AddPortfolio from "../../components/UserPage/AddPortfolio";
 import PortfolioList from "../../components/UserPage/PortfolioList";
 import PortfolioListEdit from "../../components/UserPage/PortfolioListEdit";
-import PasswordChange from "../../components/UserPage/PasswordChange"
+import PasswordChange from "../../components/UserPage/PasswordChange";
+import UserPortfolioPerformance from "../../components/UserPage/UserPortfolioPerformance";
 const routes = () => {
   return (
     <div className="route-style">
@@ -32,20 +33,30 @@ const routes = () => {
           <Route path="/signup" element={<UserSignup />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Navigate to="/home" replace/>}/>
+          <Route path="/" element={<Navigate to="/home" replace />} />
         </Route>
       </Routes>
       <Routes>
-      
         <Route path="/" element={<ProtectedRoutes role="user" />}>
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/stocklist" element={<StockList />} />
           <Route path="/addportfolio" element={<AddPortfolio />} />
           <Route path="/portfolios" element={<PortfolioList />} />
-          <Route path="/portfolio_stock/edit/:id" element={<PortfolioListEdit />} />
-          <Route path="/passwordchange" element={<PasswordChange/>} />
-          <Route path="/dashboard" element={<Navigate to="/portfolios" replace/>}/>
-        </Route>   </Routes>
+          <Route
+            path="/portfolio_stock/edit/:id"
+            element={<PortfolioListEdit />}
+          />
+          <Route path="/passwordchange" element={<PasswordChange />} />
+          <Route
+            path="/portfolioperformance"
+            element={<UserPortfolioPerformance />}
+          />
+          <Route
+            path="/dashboard"
+            element={<Navigate to="/portfolios" replace />}
+          />
+        </Route>{" "}
+      </Routes>
       <Routes>
         <Route path="/" element={<ProtectedRoutes role="admin" />}>
           {/* <Route path="/adminnavbar" element={<AdminNavbar />} /> */}
@@ -62,7 +73,10 @@ const routes = () => {
             path="/eod_stock_data/edit/:id"
             element={<Eodstocklistedit />}
           />
-             <Route path="/adminnavbar" element={<Navigate to="/excelupload" replace/>}/>
+          <Route
+            path="/adminnavbar"
+            element={<Navigate to="/excelupload" replace />}
+          />
         </Route>
       </Routes>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { Col, Container, Row,Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import AdminNavbar from "./AdminNavbar";
 const Create= () =>{
@@ -32,7 +32,7 @@ const Create= () =>{
    });
  
    setForm({ name: "", code: "", status: "" });
-   navigate("/");
+   navigate("/country");
  }
  
  // This following section will display the form that takes the input from the user.

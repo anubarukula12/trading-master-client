@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AdminNavbar from "../AdminNavbar";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import Icon from "react-crud-icons";
+import { FaEdit,FaTrash } from "react-icons/fa";
 
 const Stock = (props) => (
   <tr>
@@ -15,7 +15,7 @@ const Stock = (props) => (
     <td>{props.stock.exchange_id}</td>
     <td>
       <Link className="btn btn-link text-decoration-none" to={`/stock/edit/${props.stock._id}`}>
-        <Icon name="edit" tooltip="Edit"   theme="light" size="tiny" />
+      <FaEdit/>
       </Link>{" "}
       |
       <button
@@ -27,7 +27,7 @@ const Stock = (props) => (
           }
         }}
       >
-         <Icon name="delete" tooltip="Delete"   theme="light" size="tiny" />
+        <FaTrash color="red"/>
       </button>
     </td>
   </tr>
@@ -85,9 +85,8 @@ const StockList = () => {
       <Container>
         <Row>
           <Col
-            lg={16}
-            md={16}
-            sm={12}
+         
+           xs={12}
             className="p-5 m-auto shadow-sm rounded-lg .ml-3"
           >
             <h3>Stock List</h3>{" "}

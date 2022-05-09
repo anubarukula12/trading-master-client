@@ -26,16 +26,10 @@ const DashBoard = () => {
 
   return (
     <Container id="navbar-container">
-      <Navbar variant="light" expand="lg">
+      <Navbar variant="dark" bg="primary" fixed="top" expand="lg">
         <Navbar.Brand href="#home">
-          {" "}
-          <img
-            alt=""
-            src={logo}
-            width="35"
-            height="35"
-            className="d-inline-block align-top"
-          />{" "}
+         <h3>TRADING MASTER</h3>
+     
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -43,11 +37,11 @@ const DashBoard = () => {
             <LinkContainer to="/userprofile">
               <Nav.Link>Pofile</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/portfolioperformanve">
-              <Nav.Link>PortfolioPerformance</Nav.Link>
+            <LinkContainer to="/portfolioperformance">
+              <Nav.Link>Portfolio Performance</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/portfolios">
-              <Nav.Link>UserPortfolioList</Nav.Link>
+              <Nav.Link>Portfolio List</Nav.Link>
             </LinkContainer>
           </Nav>
           <Nav>
